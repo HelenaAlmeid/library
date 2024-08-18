@@ -14,6 +14,9 @@ public class Main {
         f.add(8);
         f.add(12);
         f.add(12);
+        f.remove();
+        f.remove();
+        f.add(3);
        
         f.mostrarFila();
      }

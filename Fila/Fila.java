@@ -24,6 +24,12 @@ public class Fila<T> {
             System.out.print("A fila está vazia");
             return null;
         }
+        if (base == 4) {
+            T removido = data[base];
+            data[base] = null;
+            base = 0;
+            return removido;
+        }
         T removido = data[base];
         data[base++] = null;
         return removido;
@@ -38,13 +44,14 @@ public class Fila<T> {
 
 
     public boolean isFull(){
-        if(base == 0 && top == data.length -1 ){
+       if(base == 0 && data[data.length -1] == null ){
             return false;
-        }
-        if (data[base -1] == null){
-            return false;
-        }
-        return true;
+       }
+       if (base != 0 && data[base -1] == null){
+        return false;
+       }
+
+       return true;
     }
 
     public boolean isEmpty(){
