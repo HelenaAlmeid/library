@@ -10,16 +10,18 @@ public class Fila<T> {
     }
 
     public void add(T element){
-        if(isFull() == true){
-            System.out.print("A pilha está cheia");
+       if (isFull() == true){
+            System.out.print("A fila está cheia");
             return;
-        }
-        data[++top] = element;
+       }
+       top = move(top);
+       data[top] = element;
+       
     }
 
     public T remove(){
         if(isEmpty() == true){
-            System.out.print("A pilha está vazia");
+            System.out.print("A fila está vazia");
             return null;
         }
         T removido = data[base];
@@ -27,24 +29,36 @@ public class Fila<T> {
         return removido;
     }
 
+    public int move(int pos){
+        if (pos +1 == data.length){
+            return 0;
+        }
+        return pos +1;
+    }
+
 
     public boolean isFull(){
-        if ( top == data.length -1 ){
-            return true;
-        }
-        else{
+        if(base == 0 && top == data.length -1 ){
             return false;
         }
+        if (data[base -1] == null){
+            return false;
+        }
+        return true;
     }
 
     public boolean isEmpty(){
-        if( top == -1){
+        if ( data[base] == null){
             return true;
         }
         return false;
     }
 
-
+    public void mostrarFila(){
+        for(int i = 0; i < data.length; i++){
+            System.out.print(data[i]);
+        }
+    }
 
 
 
