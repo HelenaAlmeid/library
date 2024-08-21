@@ -26,7 +26,7 @@ public class StaticList<T>{
         if(isFull() == true){
             throw new IllegalStateException("A lista está cheia");
         }
-        if(data[pos] == null){
+        if(data[pos] == null && pos == top += 1){
             data[pos] = element;
         }
 
