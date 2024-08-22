@@ -13,6 +13,9 @@ public class StaticList<T>{
     }
 
     public void clear(){
+        if(isEmpty() == true){
+            throw new IllegalStateException("A lista está vazia");
+        }
         Arrays.fill(data, null);
         top = -1;
     }
@@ -28,7 +31,10 @@ public class StaticList<T>{
         if(isFull() == true){
             throw new IllegalStateException("A lista está cheia");
         }
-        if(data[pos] == null && pos == top + 1){ // talvez de merda
+        if(pos > data.length -1){
+            throw new IllegalStateException("Está posição não é válida!");
+        }
+        if(data[pos] == null && pos == top + 1){ 
             data[pos] = element;
             top++;
             return;
@@ -54,15 +60,18 @@ public class StaticList<T>{
         if(data[pos] == null){
             throw new IllegalStateException("A posição está vazia!");
         }
+        if(pos > data.length - 1){
+            throw new IllegalStateException("Está posição não é válida!");
+        }
 
         T e = data[pos];
-        data[pos] = null;
-        top--;
-
-        for(int i = pos; data[i] != null; i++){
+        
+        for(int i = pos; i <= top; i++){
             T item = data[pos + 1];
             data[i] = item;
         }
+
+        data[top--] = null;
 
         return e;
 
