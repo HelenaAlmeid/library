@@ -24,7 +24,7 @@ public class Fila<T> {
             System.out.print("A fila está vazia");
             return null;
         }
-        if (base == 4) {
+        if (base == data.length - 1) {
             T removido = data[base];
             data[base] = null;
             base = 0;

@@ -10,7 +10,7 @@ public class Main {
         StaticList f = new StaticList<>(tamanho);
 
         f.add(12);
-         f.add(14, 1);
+         f.add(14, 4);
          f.add(12);
          f.add(11);
          System.out.println(f.getData(1));
