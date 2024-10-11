@@ -27,12 +27,9 @@ public class Hash {
                 if(valorMudificado < tamanho && valorMudificado > 0){
                     verificar = true;
                 }
-
             }
         }
-
         return valorMudificado;
-        
     }
 
     public void adicionarNumero(int valor){
